@@ -36,7 +36,7 @@ namespace ConsoleAdventure.Project
         Messages.Add($"Welcome to {_game.CurrentRoom.Description}");
       }
 
-      else { Messages.Add($"Bad command"); }
+      else { Messages.Add("Bad command"); }
 
     }
     public void Help()
