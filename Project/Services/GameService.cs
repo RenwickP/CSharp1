@@ -75,7 +75,7 @@ namespace ConsoleAdventure.Project
     {
       if (itemName != "vroom")
       {
-        Messages.Add("You've been very naughty, you know you cant do that...");
+        Messages.Add("You dont have any items. You know you cant do that...");
       }
 
 

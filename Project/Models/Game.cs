@@ -10,13 +10,13 @@ namespace ConsoleAdventure.Project.Models
     //NOTE Make yo rooms here...
     public void Setup()
     {
-      Room One = new Room("One", "This is the first room you enter. Its pretty cool but what is the point of anything really? Welcome to your own existential morass. Perhaps exploration will give you meaning...");
+      Room One = new Room("One", "You have entered this mysterious place. With no idea how expansive it is or what dangers await you are forced to consider its dimensions, a squre room with one ominus door leading deeper and no way out. The enternace has somehow disapered. Forward is the only way now...");
 
-      Room Two = new Room("Two", "Oh cool another room...");
+      Room Two = new Room("Two", "You have made it this far. The room does not disapoint, its wonderful and spooky at the same time.");
 
-      Room Three = new Room("Three", "This is a square room just like all the rest. Perhaps you can find something worth doing in this one.");
+      Room Three = new Room("Three", "This is a square room and looks just like all the rest. Perhaps you can find something significant in this one.");
 
-      Room Four = new Room("Four", "Its your choice win or die in this room");
+      Room Four = new Room("Four", "Its the last room and time to make all the important choices");
 
       One.InnerRoom = Two;
       Two.OuterRoom = One;
