@@ -17,7 +17,8 @@ namespace ConsoleAdventure.Project
 
     public void printStatus()
     {
-
+      System.Console.WriteLine($"Welcome to Room: {_game.CurrentRoom.Name}");
+      System.Console.WriteLine($"to {_game.CurrentRoom.Description}");
     }
     public void Go(string direction)
 
@@ -26,14 +27,14 @@ namespace ConsoleAdventure.Project
       {
         _game.CurrentRoom = _game.CurrentRoom.InnerRoom;
 
-        Messages.Add($"Welcome to {_game.CurrentRoom.Name}");
-        Messages.Add($"Welcome to {_game.CurrentRoom.Description}");
+        // Messages.Add($"Welcome to {_game.CurrentRoom.Name}");
+        // Messages.Add($"{_game.CurrentRoom.Description}");
       }
       else if (direction == "back" && _game.CurrentRoom.OuterRoom != null)
       {
         _game.CurrentRoom = _game.CurrentRoom.OuterRoom;
-        Messages.Add($"Welcome to {_game.CurrentRoom.Name}");
-        Messages.Add($"Welcome to {_game.CurrentRoom.Description}");
+        // Messages.Add($"Welcome to {_game.CurrentRoom.Name}");
+        // Messages.Add($"to {_game.CurrentRoom.Description}");
       }
 
       else { Messages.Add("Bad command"); }
