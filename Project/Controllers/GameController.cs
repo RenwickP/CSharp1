@@ -51,6 +51,11 @@ namespace ConsoleAdventure.Project.Controllers
 
         case "look":
           _gameService.Look();
+
+          break;
+
+        case "search":
+          _gameService.xtraprint();
           break;
 
         case "help":

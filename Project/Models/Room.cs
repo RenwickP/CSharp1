@@ -22,5 +22,6 @@ namespace ConsoleAdventure.Project.Models
       Exits = new Dictionary<string, IRoom>();
 
     }
+
   }
 }

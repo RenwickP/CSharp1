@@ -17,8 +17,21 @@ namespace ConsoleAdventure.Project
 
     public void printStatus()
     {
+
+
       System.Console.WriteLine($"Welcome to Room: {_game.CurrentRoom.Name}");
       System.Console.WriteLine($"to {_game.CurrentRoom.Description}");
+
+
+
+    }
+
+    public void xtraprint()
+    {
+      foreach (Item i in _game.CurrentRoom.Items)
+      {
+        Messages.Add($"{i.Name}");
+      }
     }
     public void Go(string direction)
 
@@ -35,6 +48,8 @@ namespace ConsoleAdventure.Project
         _game.CurrentRoom = _game.CurrentRoom.OuterRoom;
         // Messages.Add($"Welcome to {_game.CurrentRoom.Name}");
         // Messages.Add($"to {_game.CurrentRoom.Description}");
+
+
       }
 
       else { Messages.Add("Bad command"); }
@@ -42,18 +57,23 @@ namespace ConsoleAdventure.Project
     }
     public void Help()
     {
-      Messages.Add("Commands are: Help, Move Forward, Move Back, Look, Quit");
+      Messages.Add("Commands are: Help, Move Forward, Move Back, Look, Quit, search");
     }
 
     public void Inventory()
     {
+
       throw new System.NotImplementedException();
     }
 
     public void Look()
     {
       Messages.Add($"Welcome to {_game.CurrentRoom.Description}");
+
+
     }
+
+
 
     public void Quit()
     {

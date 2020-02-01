@@ -10,7 +10,8 @@ namespace ConsoleAdventure.Project.Interfaces
     List<Item> Items { get; set; }
     Dictionary<string, IRoom> Exits { get; set; }
 
-    public Room OuterRoom { get; set; }
-    public Room InnerRoom { get; set; }
+    Room OuterRoom { get; set; }
+    Room InnerRoom { get; set; }
+
   }
 }
