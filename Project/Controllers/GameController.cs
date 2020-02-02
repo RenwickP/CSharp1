@@ -36,8 +36,8 @@ namespace ConsoleAdventure.Project.Controllers
       switch (command)
       {
 
-        case "talk":
-          System.Console.WriteLine("hey whut up");
+        case "use":
+          _gameService.UseItem(option);
           break;
 
         case "quit":

@@ -83,6 +83,8 @@ namespace ConsoleAdventure.Project
     }
     public void Inventory()
     {
+
+
       // System.Console.WriteLine(_game.CurrentPlayer.Inventory);
       foreach (Item i in _game.CurrentPlayer.Inventory)
       {
@@ -134,7 +136,31 @@ namespace ConsoleAdventure.Project
     ///</summary>
     public void UseItem(string itemName)
     {
-      throw new System.NotImplementedException();
+
+      //  string iN = itemName;
+      foreach (Item i in _game.CurrentPlayer.Inventory)
+      {
+
+        if (i.Name == itemName)
+        {
+
+
+
+
+          // if (itemName == _game.CurrentPlayer.Inventory.ToString() && _game.CurrentRoom.Name == "Four")
+          if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name == "Four")
+          {
+            System.Console.WriteLine("You Win!");
+          }
+          else if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name != "Four")
+            System.Console.WriteLine("You Lose!");
+
+        }
+        else
+        {
+          System.Console.WriteLine("cant do that");
+        }
+      }
     }
   }
 }

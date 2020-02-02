@@ -24,8 +24,8 @@ namespace ConsoleAdventure.Project.Models
       Room Four = new Room("Four", "Its the last room and time to make all the important choices");
 
 
-      Three.Items.Add(new Item("Gem", "Its a magic gem"));
-      Item Gem = new Item("Gem", "Magic Gem");
+      Three.Items.Add(new Item("gem", "Its a magic gem"));
+      Item Gem = new Item("gem", "Magic Gem");
 
       One.InnerRoom = Two;
       Two.OuterRoom = One;
@@ -37,6 +37,7 @@ namespace ConsoleAdventure.Project.Models
 
       CurrentRoom = One;
       CurrentPlayer = Hero;
+      // CurrentPlayer.Inventory = null;
 
     }
     public Game()
