@@ -14,15 +14,24 @@ namespace ConsoleAdventure.Project
       _game = new Game();
       Messages = new List<string>();
     }
-
+    public void firstPrint()
+    {
+      System.Console.WriteLine($"Welcome to Room: {_game.CurrentRoom.Name}");
+      System.Console.WriteLine($"{_game.CurrentRoom.Description}");
+    }
     public void printStatus()
     {
+      // foreach (Item i in _game.CurrentPlayer.Inventory)
+      //   if (i.Name == "gem" && _game.CurrentRoom.Name == "Four")
+      //   {
 
+      //     _game.CurrentRoom.Description = "The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here...";
+      //   }
 
-      System.Console.WriteLine($"Welcome to Room: {_game.CurrentRoom.Name}");
-      System.Console.WriteLine($"to {_game.CurrentRoom.Description}");
+      // {
+      //   System.Console.WriteLine("The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here... ");
 
-
+      // }
 
     }
 
@@ -47,18 +56,21 @@ namespace ConsoleAdventure.Project
         _game.CurrentRoom = _game.CurrentRoom.InnerRoom;
 
         // Messages.Add($"Welcome to {_game.CurrentRoom.Name}");
-        // Messages.Add($"{_game.CurrentRoom.Description}");
+        Messages.Add($"{_game.CurrentRoom.Description}");
+
       }
+
+
       else if (direction == "back" && _game.CurrentRoom.OuterRoom != null)
       {
         _game.CurrentRoom = _game.CurrentRoom.OuterRoom;
         // Messages.Add($"Welcome to {_game.CurrentRoom.Name}");
-        // Messages.Add($"to {_game.CurrentRoom.Description}");
+        Messages.Add($"{_game.CurrentRoom.Description}");
 
 
       }
 
-      else { Messages.Add("Bad command"); }
+      else { Messages.Add("There is no where else to go"); }
 
     }
     public void Help()
@@ -73,12 +85,26 @@ namespace ConsoleAdventure.Project
       }
       else if (_game.CurrentRoom.Items != null)
       {
+
+        ////Why doesnt this work?????????????
+        // _game.CurrentRoom.Description = "The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here...";
+        /////!!!!!!!!!!!!!!1////?
+
         //  foreach (Item i in _game.CurrentRoom.Items)
         //     {
         // _game.CurrentRoom.Items.AddRange(_game.CurrentPlayer.Inventory);
         _game.CurrentPlayer.Inventory.AddRange(_game.CurrentRoom.Items);
 
         _game.CurrentRoom.Items = null;
+
+        if (_game.CurrentRoom.Name == "Three")
+        {
+
+          _game.CurrentRoom.InnerRoom.Description = "The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here...";
+        }
+
+
+
       }
     }
     public void Inventory()
@@ -125,9 +151,6 @@ namespace ConsoleAdventure.Project
       {
         Messages.Add("You dont have any items. You know you cant do that...");
       }
-
-
-
     }
     ///<summary>
     ///No need to Pass a room since Items can only be used in the CurrentRoom
@@ -137,17 +160,13 @@ namespace ConsoleAdventure.Project
     public void UseItem(string itemName)
     {
 
-      //  string iN = itemName;
+
       foreach (Item i in _game.CurrentPlayer.Inventory)
       {
 
         if (i.Name == itemName)
         {
 
-
-
-
-          // if (itemName == _game.CurrentPlayer.Inventory.ToString() && _game.CurrentRoom.Name == "Four")
           if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name == "Four")
           {
             System.Console.WriteLine("You Win!");

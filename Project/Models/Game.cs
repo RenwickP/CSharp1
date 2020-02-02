@@ -35,6 +35,8 @@ namespace ConsoleAdventure.Project.Models
       Four.OuterRoom = Three;
 
 
+
+
       CurrentRoom = One;
       CurrentPlayer = Hero;
       // CurrentPlayer.Inventory = null;

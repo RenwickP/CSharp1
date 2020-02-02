@@ -10,11 +10,13 @@ namespace ConsoleAdventure.Project.Controllers
   {
 
     private GameService _gameService = new GameService();
+
     private bool playingGame = true;
 
     //NOTE Makes sure everything is called to finish Setup and Starts the Game loop
     public void Run()
     {
+      _gameService.firstPrint();
       while (playingGame)
       {
         Print();
@@ -66,9 +68,6 @@ namespace ConsoleAdventure.Project.Controllers
           _gameService.Help();
           break;
 
-        case "take":
-          _gameService.TakeItem(command);
-          break;
 
         case "i":
           _gameService.Inventory();
