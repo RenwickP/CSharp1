@@ -19,6 +19,7 @@ namespace ConsoleAdventure.Project.Controllers
       _gameService.firstPrint();
       while (playingGame)
       {
+
         Print();
         GetUserInput();
 
@@ -27,6 +28,7 @@ namespace ConsoleAdventure.Project.Controllers
     //NOTE Gets the user input, calls the appropriate command, and passes on the option if needed.
     public void GetUserInput()
     {
+
       _gameService.printStatus();
       Console.WriteLine("What would you like to do?");
       string input = Console.ReadLine().ToLower() + " ";
@@ -57,11 +59,11 @@ namespace ConsoleAdventure.Project.Controllers
           break;
 
         case "get":
-          _gameService.Get();
+          _gameService.Get(option);
           break;
 
         case "search":
-          _gameService.xtraprint();
+          _gameService.xtraprint(option);
           break;
 
         case "help":
@@ -101,11 +103,19 @@ namespace ConsoleAdventure.Project.Controllers
     {
       foreach (String Message in _gameService.Messages)
 
+
       {
         Console.WriteLine(Message.ToString());
 
       }
+
+
+
       _gameService.Messages.Clear();
+
+
+
+
 
     }
   }

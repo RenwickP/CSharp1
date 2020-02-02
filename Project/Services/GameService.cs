@@ -35,12 +35,19 @@ namespace ConsoleAdventure.Project
 
     }
 
-    public void xtraprint()
+    public void xtraprint(string input)
     {
-
-      if (_game.CurrentRoom.Items == null)
+      if (input != "room")
       {
-        System.Console.WriteLine("no items found");
+        Messages.Add("You cant do that");
+      }
+      else if (_game.CurrentRoom.Name != "Three" && input == "room")
+      {
+        Messages.Add("You find nothing");
+      }
+      else if (_game.CurrentRoom.Items == null && input == "room")
+      {
+        Messages.Add("no items found, you already took them");
       }
       else
         foreach (Item i in _game.CurrentRoom.Items)
@@ -75,24 +82,23 @@ namespace ConsoleAdventure.Project
     }
     public void Help()
     {
-      Messages.Add("Commands are: Help, Move Forward, Move Back, Look, Quit, search");
+      Messages.Add("Commands are: Help, Move Forward, Move Back, Look, Quit, search room, use (item) i for inventory");
     }
-    public void Get()
+    public void Get(string item)
     {
-      if (_game.CurrentRoom.Items == null)
+      if (item != "gem")
+      {
+        Messages.Add("You cannot pick that up");
+      }
+
+      else if (_game.CurrentRoom.Items == null && item == "gem")
       {
         System.Console.WriteLine("no items");
       }
-      else if (_game.CurrentRoom.Items != null)
+
+      else if (_game.CurrentRoom.Items != null && item == "gem")
       {
 
-        ////Why doesnt this work?????????????
-        // _game.CurrentRoom.Description = "The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here...";
-        /////!!!!!!!!!!!!!!1////?
-
-        //  foreach (Item i in _game.CurrentRoom.Items)
-        //     {
-        // _game.CurrentRoom.Items.AddRange(_game.CurrentPlayer.Inventory);
         _game.CurrentPlayer.Inventory.AddRange(_game.CurrentRoom.Items);
 
         _game.CurrentRoom.Items = null;
@@ -102,10 +108,8 @@ namespace ConsoleAdventure.Project
 
           _game.CurrentRoom.InnerRoom.Description = "The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here...";
         }
-
-
-
       }
+
     }
     public void Inventory()
     {
@@ -169,7 +173,7 @@ namespace ConsoleAdventure.Project
 
           if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name == "Four")
           {
-            System.Console.WriteLine("You Win!");
+            Messages.Add("You Win!");
           }
           else if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name != "Four")
             System.Console.WriteLine("You Lose!");
