@@ -54,6 +54,10 @@ namespace ConsoleAdventure.Project.Controllers
 
           break;
 
+        case "get":
+          _gameService.Get();
+          break;
+
         case "search":
           _gameService.xtraprint();
           break;
@@ -64,6 +68,10 @@ namespace ConsoleAdventure.Project.Controllers
 
         case "take":
           _gameService.TakeItem(command);
+          break;
+
+        case "i":
+          _gameService.Inventory();
           break;
 
         default:

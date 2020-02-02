@@ -59,11 +59,21 @@ namespace ConsoleAdventure.Project
     {
       Messages.Add("Commands are: Help, Move Forward, Move Back, Look, Quit, search");
     }
-
+    public void Get()
+    {
+      //  foreach (Item i in _game.CurrentRoom.Items)
+      //     {
+      // _game.CurrentRoom.Items.AddRange(_game.CurrentPlayer.Inventory);
+      _game.CurrentPlayer.Inventory.AddRange(_game.CurrentRoom.Items);
+    }
     public void Inventory()
     {
-
-      throw new System.NotImplementedException();
+      // System.Console.WriteLine(_game.CurrentPlayer.Inventory);
+      foreach (Item i in _game.CurrentPlayer.Inventory)
+      {
+        Messages.Add($"{i.Name}");
+      }
+      // System.Console.WriteLine($"name of hero is... {_game.CurrentPlayer.Name}");
     }
 
     public void Look()
