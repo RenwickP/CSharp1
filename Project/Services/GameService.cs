@@ -21,17 +21,7 @@ namespace ConsoleAdventure.Project
     }
     public void printStatus()
     {
-      // foreach (Item i in _game.CurrentPlayer.Inventory)
-      //   if (i.Name == "gem" && _game.CurrentRoom.Name == "Four")
-      //   {
 
-      //     _game.CurrentRoom.Description = "The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here...";
-      //   }
-
-      // {
-      //   System.Console.WriteLine("The room shimmers and somthing seems differnt. Perhaps this gem is the secret to getting out of here... ");
-
-      // }
 
     }
 
@@ -67,7 +57,6 @@ namespace ConsoleAdventure.Project
 
       }
 
-
       else if (direction == "back" && _game.CurrentRoom.OuterRoom != null)
       {
         _game.CurrentRoom = _game.CurrentRoom.OuterRoom;
@@ -82,7 +71,7 @@ namespace ConsoleAdventure.Project
     }
     public void Help()
     {
-      Messages.Add("Commands are: Help, Move Forward, Move Back, Look, Quit, search room, use (item) i for inventory");
+      Messages.Add("Commands are: Help, Move Forward, Move Back, Look, Quit, search room, use (item), inventory");
     }
     public void Get(string item)
     {

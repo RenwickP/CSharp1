@@ -70,8 +70,7 @@ namespace ConsoleAdventure.Project.Controllers
           _gameService.Help();
           break;
 
-
-        case "i":
+        case "inventory":
           _gameService.Inventory();
           break;
 
@@ -81,21 +80,7 @@ namespace ConsoleAdventure.Project.Controllers
 
       }
 
-
-
-
     }
-
-
-
-
-    //  public void PrintMessages()
-    //         {
-    //             foreach (Message message in Service.Messages)
-    //             {
-    //                 message.Print();
-    //             }
-    //             Service.Messages.Clear();
 
 
     //NOTE this should print your messages for the game.
@@ -103,20 +88,16 @@ namespace ConsoleAdventure.Project.Controllers
     {
       foreach (String Message in _gameService.Messages)
 
-
       {
         Console.WriteLine(Message.ToString());
 
       }
-
-
-
       _gameService.Messages.Clear();
 
 
-
-
-
     }
+
+
+
   }
 }
