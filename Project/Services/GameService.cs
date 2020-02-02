@@ -28,10 +28,16 @@ namespace ConsoleAdventure.Project
 
     public void xtraprint()
     {
-      foreach (Item i in _game.CurrentRoom.Items)
+
+      if (_game.CurrentRoom.Items == null)
       {
-        Messages.Add($"{i.Name}");
+        System.Console.WriteLine("no items found");
       }
+      else
+        foreach (Item i in _game.CurrentRoom.Items)
+        {
+          Messages.Add($"{i.Name}");
+        }
     }
     public void Go(string direction)
 
@@ -61,10 +67,19 @@ namespace ConsoleAdventure.Project
     }
     public void Get()
     {
-      //  foreach (Item i in _game.CurrentRoom.Items)
-      //     {
-      // _game.CurrentRoom.Items.AddRange(_game.CurrentPlayer.Inventory);
-      _game.CurrentPlayer.Inventory.AddRange(_game.CurrentRoom.Items);
+      if (_game.CurrentRoom.Items == null)
+      {
+        System.Console.WriteLine("no items");
+      }
+      else if (_game.CurrentRoom.Items != null)
+      {
+        //  foreach (Item i in _game.CurrentRoom.Items)
+        //     {
+        // _game.CurrentRoom.Items.AddRange(_game.CurrentPlayer.Inventory);
+        _game.CurrentPlayer.Inventory.AddRange(_game.CurrentRoom.Items);
+
+        _game.CurrentRoom.Items = null;
+      }
     }
     public void Inventory()
     {
