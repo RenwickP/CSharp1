@@ -167,7 +167,7 @@ namespace ConsoleAdventure.Project
             Messages.Add("You Win!");
           }
           else if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name == "Three")
-            System.Console.WriteLine("You Lose!");
+            System.Console.WriteLine("You Lose! You should not have attempted to use the gem here. Its power torn the room asunder and you die.");
 
           else if (itemName == "gem" && _game.CurrentRoom.Name == "Two")
           {
