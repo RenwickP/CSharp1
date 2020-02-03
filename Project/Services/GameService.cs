@@ -27,6 +27,7 @@ namespace ConsoleAdventure.Project
 
     public void xtraprint(string input)
     {
+
       if (input != "room")
       {
         Messages.Add("You cant do that");
@@ -79,6 +80,7 @@ namespace ConsoleAdventure.Project
       {
         Messages.Add("You cannot pick that up");
       }
+
 
       else if (_game.CurrentRoom.Items == null && item == "gem")
       {
@@ -164,8 +166,13 @@ namespace ConsoleAdventure.Project
           {
             Messages.Add("You Win!");
           }
-          else if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name != "Four")
+          else if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name == "Three")
             System.Console.WriteLine("You Lose!");
+
+          else if (itemName == "gem" && _game.CurrentRoom.Name == "Two")
+          {
+            _game.CurrentRoom.Description = "The power of the gem has permently changed this room and it glows bright";
+          }
 
         }
         else

@@ -23,7 +23,7 @@ namespace ConsoleAdventure.Project.Models
 
       Room Four = new Room("Four", "Its the last room and time to make all the important choices");
 
-
+      // Two.Items.Add(new Item("torch", "lights the room"));
       Three.Items.Add(new Item("gem", "Its a magic gem"));
       Item Gem = new Item("gem", "Magic Gem");
 
