@@ -76,15 +76,24 @@ namespace ConsoleAdventure.Project
     }
     public void Get(string item)
     {
-      if (item != "gem")
+      if (item == "")
+      {
+        Messages.Add("What are you doing???");
+      }
+
+      else if (item != "gem")
       {
         Messages.Add("You cannot pick that up");
       }
 
+      else if (_game.CurrentRoom.Name != "Three")
+      {
+        Messages.Add("You cannot pick that up");
+      }
 
       else if (_game.CurrentRoom.Items == null && item == "gem")
       {
-        System.Console.WriteLine("no items");
+        System.Console.WriteLine("no items left, you already picked that up!");
       }
 
       else if (_game.CurrentRoom.Items != null && item == "gem")
