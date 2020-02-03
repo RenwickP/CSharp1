@@ -164,7 +164,7 @@ namespace ConsoleAdventure.Project
 
           if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name == "Four")
           {
-            Messages.Add("You Win!");
+            Messages.Add("The power of the gem breaks open the wall and you have an escape. You Win!");
           }
           else if (itemName == "gem" && _game.CurrentPlayer.Inventory != null && _game.CurrentRoom.Name == "Three")
             System.Console.WriteLine("You Lose! You should not have attempted to use the gem here. Its power torn the room asunder and you die.");
